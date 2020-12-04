@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace MarcTron.Plugin.Controls
@@ -35,6 +36,13 @@ namespace MarcTron.Plugin.Controls
         {
             get => (bool?)GetValue(ComplyFamilyPoliciesProperty);
             set => SetValue(ComplyFamilyPoliciesProperty, value);
+        }
+
+        public static readonly BindableProperty CustomParametersProperty = BindableProperty.Create("CustomParameters", typeof(Dictionary<string, string>), typeof(MTAdView));
+        public Dictionary<string, string> CustomParameters
+        {
+            get => (Dictionary<string, string>)GetValue(CustomParametersProperty);
+            set => SetValue(CustomParametersProperty, value);
         }
 
         internal void AdClicked(object sender, EventArgs e)

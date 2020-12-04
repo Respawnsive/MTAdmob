@@ -8,6 +8,7 @@ using Google.Ads.Mediation.Admob;
 using MarcTron.Plugin.CustomEventArgs;
 using MarcTron.Plugin.Interfaces;
 using MarcTron.Plugin.Listeners;
+using Xamarin.Forms.Internals;
 // ReSharper disable InconsistentNaming
 
 namespace MarcTron.Plugin
@@ -23,6 +24,7 @@ namespace MarcTron.Plugin
         public bool UseRestrictedDataProcessing { get; set; } = false;
         public bool ComplyWithFamilyPolicies { get; set; } = false;
         public List<string> TestDevices { get; set; }
+        public Dictionary<string, string> CustomParameters { get; set; } = new Dictionary<string, string>();
 
         InterstitialAd _ad;
 
@@ -88,6 +90,15 @@ namespace MarcTron.Plugin
             {
                 requestBuilder.TagForChildDirectedTreatment(CrossMTAdmob.Current.ComplyWithFamilyPolicies);
                 bundleExtra.PutString("max_ad_content_rating", "G");
+                addBundle = true;
+            }
+
+            if (CrossMTAdmob.Current.CustomParameters.Count > 0)
+            {
+                foreach (KeyValuePair<string, string> param in CrossMTAdmob.Current.CustomParameters)
+                {
+                    bundleExtra.PutString(param.Key, param.Value);
+                }
                 addBundle = true;
             }
 

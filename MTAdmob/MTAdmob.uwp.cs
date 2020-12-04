@@ -17,6 +17,7 @@ namespace MarcTron.Plugin
         public List<string> TestDevices { get; set; }
         public bool UseRestrictedDataProcessing { get; set; }
         public bool ComplyWithFamilyPolicies { get; set; }
+        public Dictionary<string, string> CustomParameters { get; set; } = new Dictionary<string, string>();
 
         public event EventHandler<MTEventArgs> OnRewarded;
         public event EventHandler OnRewardedVideoAdClosed;

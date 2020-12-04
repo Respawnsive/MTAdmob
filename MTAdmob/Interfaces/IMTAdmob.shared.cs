@@ -13,6 +13,7 @@ namespace MarcTron.Plugin.Interfaces
         bool IsEnabled { get; set; }
 
         string AdsId { get; set; }
+
         bool UserPersonalizedAds { get; set; }
 
         bool UseRestrictedDataProcessing { get; set; }
@@ -20,6 +21,8 @@ namespace MarcTron.Plugin.Interfaces
         bool ComplyWithFamilyPolicies { get; set; }
 
         List<string> TestDevices { get; set; }
+        
+        Dictionary<string, string> CustomParameters { get; set; }
 
         bool IsInterstitialLoaded();
         void LoadInterstitial(string adUnit);
