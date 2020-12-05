@@ -7,9 +7,7 @@ namespace MarcTron.Plugin.Controls
     // ReSharper disable once InconsistentNaming
     public class MTAdView : View
     {
-        public event EventHandler AdsClicked;
         public event EventHandler AdsClosed;
-        public event EventHandler AdsImpression;
         public event EventHandler AdsOpened;
         public event EventHandler AdsFailedToLoad;
         public event EventHandler AdsLeftApplication;
@@ -23,41 +21,9 @@ namespace MarcTron.Plugin.Controls
             set => SetValue(AdsIdProperty, value);
         }
 
-        public static readonly BindableProperty PersonalizedAdsProperty = BindableProperty.Create("PersonalizedAds", typeof(bool), typeof(MTAdView));
-
-        public bool? PersonalizedAds
-        {
-            get => (bool?)GetValue(PersonalizedAdsProperty);
-            set => SetValue(PersonalizedAdsProperty, value);
-        }
-
-        public static readonly BindableProperty ComplyFamilyPoliciesProperty = BindableProperty.Create("ComplyFamilyPolicies", typeof(bool), typeof(MTAdView));
-        public bool? ComplyFamilyPolicies
-        {
-            get => (bool?)GetValue(ComplyFamilyPoliciesProperty);
-            set => SetValue(ComplyFamilyPoliciesProperty, value);
-        }
-
-        public static readonly BindableProperty CustomParametersProperty = BindableProperty.Create("CustomParameters", typeof(Dictionary<string, string>), typeof(MTAdView));
-        public Dictionary<string, string> CustomParameters
-        {
-            get => (Dictionary<string, string>)GetValue(CustomParametersProperty);
-            set => SetValue(CustomParametersProperty, value);
-        }
-
-        internal void AdClicked(object sender, EventArgs e)
-        {
-            AdsClicked?.Invoke(sender,e);
-        }
-
         internal void AdClosed(object sender, EventArgs e)
         {
             AdsClosed?.Invoke(sender, e);
-        }
-
-        internal void AdImpression(object sender, EventArgs e)
-        {
-            AdsImpression?.Invoke(sender, e);
         }
 
         internal void AdOpened(object sender, EventArgs e)

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using MarcTron.Plugin;
+using MarcTron.Plugin.Enums;
 using Xamarin.Forms;
 
 namespace SampleMTAdmob
@@ -10,11 +11,17 @@ namespace SampleMTAdmob
         {
             InitializeComponent();
 
-            CrossMTAdmob.Current.UserPersonalizedAds = true;
-            CrossMTAdmob.Current.ComplyWithFamilyPolicies = true;
-            CrossMTAdmob.Current.UseRestrictedDataProcessing = true;
-            CrossMTAdmob.Current.AdsId = "ca-app-pub-3940256099942544/6300978111";
-            CrossMTAdmob.Current.TestDevices = new List<string>() {"YOUR PHONE IDS HERE", "", ""};
+            //CrossMTAdmob.Current.UserPersonalizedAds = true;
+            //CrossMTAdmob.Current.MaxAdContentRating = MaxAdContentRating.GeneralAudiences;
+            //CrossMTAdmob.Current.TagForChildDirectedTreatment = true;
+            //CrossMTAdmob.Current.TagForUnderAgeOfConsent = true;
+            //CrossMTAdmob.Current.UseRestrictedDataProcessing = true;
+            //var customparam = new Dictionary<string, string>();
+            //customparam.Add("mykey", "myvalue");
+            //CrossMTAdmob.Current.CustomParameters = customparam;
+            //CrossMTAdmob.Current.TestDevices = new List<string>() {"YOUR PHONE IDS HERE", "", ""};
+
+            CrossMTAdmob.Current.IsInTestMode = true;
 
             MainPage = new NavigationPage(new MainPage());
         }

@@ -22,7 +22,7 @@ namespace MarcTron.Plugin.Renderers
         {
         }
 
-        private void CreateNativeControl(MTAdView myMtAdView, string adsId, bool? personalizedAds)
+        private void CreateNativeControl(MTAdView myMtAdView, string adsId)
         {
             if (!CrossMTAdmob.Current.IsEnabled)
                 return;
@@ -30,18 +30,16 @@ namespace MarcTron.Plugin.Renderers
             if (_adView != null)
                 return;
 
-            _adUnitId = !string.IsNullOrEmpty(adsId) ? adsId : CrossMTAdmob.Current.AdsId;
+            _adUnitId = !string.IsNullOrEmpty(adsId) ? adsId : CrossMTAdmob.Current.AdUnitId_Banner;
 
             if (string.IsNullOrEmpty(_adUnitId))
             {
                 Console.WriteLine("You must set the adsID before using it");
             }
 
-            var listener = new MyAdBannerListener();
+            var listener = new MTAdListener(adsId);
 
-            listener.AdClicked += myMtAdView.AdClicked;
             listener.AdClosed += myMtAdView.AdClosed;
-            listener.AdImpression += myMtAdView.AdImpression;
             listener.AdOpened += myMtAdView.AdOpened;
             listener.AdFailedToLoad += myMtAdView.AdFailedToLoad;
             listener.AdLoaded += myMtAdView.AdLoaded;
@@ -52,11 +50,11 @@ namespace MarcTron.Plugin.Renderers
                 AdSize = _adSize,
                 AdUnitId = _adUnitId,
                 AdListener = listener,
+                
                 LayoutParameters = new LinearLayout.LayoutParams(LayoutParams.WrapContent, LayoutParams.WrapContent)
             };
 
-            var requestBuilder = MTAdmobImplementation.GetRequest();
-            _adView.LoadAd(requestBuilder.Build());
+            _adView.LoadAd(MTAdmobImplementation.GetRequest());
         }
 
         protected override void OnElementChanged(ElementChangedEventArgs<MTAdView> e)
@@ -67,7 +65,7 @@ namespace MarcTron.Plugin.Renderers
 
             if (Control == null)
             {
-                CreateNativeControl(e.NewElement, e.NewElement.AdsId, e.NewElement.PersonalizedAds);
+                CreateNativeControl(e.NewElement, e.NewElement.AdsId);
                 SetNativeControl(_adView);
             }
         }

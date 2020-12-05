@@ -1,22 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
-             mc:Ignorable="d"
-             x:Class="SampleMTAdmob.SecondPage">
+<ContentPage
+    x:Class="SampleMTAdmob.SecondPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Label Text="Second Page!" 
-                       HorizontalOptions="Center"
-                       VerticalOptions="CenterAndExpand" />
-                <Label x:Name="myLabel" Text="" 
-                       HorizontalOptions="Center"
-                       VerticalOptions="CenterAndExpand" />
-                <!-- Place the Admob controls here -->
-                <controls:MTAdView x:Name="myAds" IsVisible="true" PersonalizedAds="true" AdsId="ca-app-pub-3940256099942544/6300978111" VerticalOptions="EndAndExpand" >
+                <Label
+                    HorizontalOptions="Center"
+                    Text="Second Page!"
+                    VerticalOptions="CenterAndExpand" />
+                <Label
+                    x:Name="myLabel"
+                    HorizontalOptions="Center"
+                    Text=""
+                    VerticalOptions="CenterAndExpand" />
+                <!--  Place the Admob controls here  -->
+                <controls:MTAdView
+                    x:Name="myAds"
+                    AdsId="ca-app-pub-3940256099942544/6300978111"
+                    IsVisible="true"
+                    VerticalOptions="EndAndExpand">
                     <controls:MTAdView.HeightRequest>
                         <x:OnIdiom>
                             <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
@@ -25,12 +33,12 @@
                         </x:OnIdiom>
                     </controls:MTAdView.HeightRequest>
                 </controls:MTAdView>
-                <Button Text="Load Reward" Clicked="LoadReward_OnClicked"></Button>
-                <Button Text="Show Reward" Clicked="ShowReward_OnClicked"></Button>
-                <Button Text="Is Reward Loaded" Clicked="IsRewardLoaded_OnClicked"></Button>
-                <Button Text="Load Interstitial" Clicked="LoadInterstitial_OnClicked"></Button>
-                <Button Text="Show Interstitial" Clicked="ShowInterstitial_OnClicked"></Button>
-                <Button Text="Is Interstitial Loaded" Clicked="IsLoadedInterstitial_OnClicked"></Button>
+                <Button Clicked="LoadReward_OnClicked" Text="Load Reward" />
+                <Button Clicked="ShowReward_OnClicked" Text="Show Reward" />
+                <Button Clicked="IsRewardLoaded_OnClicked" Text="Is Reward Loaded" />
+                <Button Clicked="LoadInterstitial_OnClicked" Text="Load Interstitial" />
+                <Button Clicked="ShowInterstitial_OnClicked" Text="Show Interstitial" />
+                <Button Clicked="IsLoadedInterstitial_OnClicked" Text="Is Interstitial Loaded" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

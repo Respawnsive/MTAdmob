@@ -93,6 +93,10 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\MTAdmob\MTAdmob.csproj">
+      <Project>{93ffea0a-37ed-4ce1-b902-2098992af15f}</Project>
+      <Name>MTAdmob</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SampleMTAdmob\SampleMTAdmob.csproj">
       <Project>{910F5696-931C-4C16-8D06-EF9857FA09AF}</Project>
       <Name>SampleMTAdmob</Name>

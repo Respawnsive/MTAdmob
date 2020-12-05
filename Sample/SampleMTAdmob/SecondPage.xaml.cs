@@ -34,13 +34,13 @@ public partial class SecondPage : ContentPage
             if (_shouldSetEvents)
             {
                 _shouldSetEvents = false;
-                CrossMTAdmob.Current.OnRewardedVideoStarted += Current_OnRewardedVideoStarted;
-                CrossMTAdmob.Current.OnRewarded += Current_OnRewarded;
-                CrossMTAdmob.Current.OnRewardedVideoAdClosed += Current_OnRewardedVideoAdClosed;
-                CrossMTAdmob.Current.OnRewardedVideoAdFailedToLoad += Current_OnRewardedVideoAdFailedToLoad;
-                CrossMTAdmob.Current.OnRewardedVideoAdLeftApplication += Current_OnRewardedVideoAdLeftApplication;
-                CrossMTAdmob.Current.OnRewardedVideoAdLoaded += Current_OnRewardedVideoAdLoaded;
-                CrossMTAdmob.Current.OnRewardedVideoAdOpened += Current_OnRewardedVideoAdOpened;
+                //CrossMTAdmob.Current.OnRewardedVideoStarted += Current_OnRewardedVideoStarted;
+                //CrossMTAdmob.Current.OnRewarded += Current_OnRewarded;
+                //CrossMTAdmob.Current.OnRewardedVideoAdClosed += Current_OnRewardedVideoAdClosed;
+                //CrossMTAdmob.Current.OnRewardedVideoAdFailedToLoad += Current_OnRewardedVideoAdFailedToLoad;
+                //CrossMTAdmob.Current.OnRewardedVideoAdLeftApplication += Current_OnRewardedVideoAdLeftApplication;
+                //CrossMTAdmob.Current.OnRewardedVideoAdLoaded += Current_OnRewardedVideoAdLoaded;
+                //CrossMTAdmob.Current.OnRewardedVideoAdOpened += Current_OnRewardedVideoAdOpened;
 
                 CrossMTAdmob.Current.OnInterstitialLoaded += Current_OnInterstitialLoaded;
                 CrossMTAdmob.Current.OnInterstitialOpened += Current_OnInterstitialOpened;
@@ -78,7 +78,7 @@ public partial class SecondPage : ContentPage
             Debug.WriteLine("2OnRewardedVideoAdLeftApplication");
         }
 
-        private void Current_OnRewardedVideoAdFailedToLoad(object sender, MTEventArgs e)
+        private void Current_OnRewardedVideoAdFailedToLoad(object sender, MTRewardedEventArgs e)
         {
             Debug.WriteLine("2OnRewardedVideoAdFailedToLoad");
         }
@@ -88,7 +88,7 @@ public partial class SecondPage : ContentPage
             Debug.WriteLine("2OnRewardedVideoAdClosed");
         }
 
-        private void Current_OnRewarded(object sender, MTEventArgs e)
+        private void Current_OnRewarded(object sender, MTRewardedEventArgs e)
         {
             Debug.WriteLine($"2OnRewarded: {e.RewardType} - {e.RewardAmount}");
         }
@@ -152,13 +152,13 @@ public partial class SecondPage : ContentPage
         private void DisableEvents()
         {
             _shouldSetEvents = true;
-            CrossMTAdmob.Current.OnRewardedVideoStarted -= Current_OnRewardedVideoStarted;
-            CrossMTAdmob.Current.OnRewarded -= Current_OnRewarded;
-            CrossMTAdmob.Current.OnRewardedVideoAdClosed -= Current_OnRewardedVideoAdClosed;
-            CrossMTAdmob.Current.OnRewardedVideoAdFailedToLoad -= Current_OnRewardedVideoAdFailedToLoad;
-            CrossMTAdmob.Current.OnRewardedVideoAdLeftApplication -= Current_OnRewardedVideoAdLeftApplication;
-            CrossMTAdmob.Current.OnRewardedVideoAdLoaded -= Current_OnRewardedVideoAdLoaded;
-            CrossMTAdmob.Current.OnRewardedVideoAdOpened -= Current_OnRewardedVideoAdOpened;
+            //CrossMTAdmob.Current.OnRewardedVideoStarted -= Current_OnRewardedVideoStarted;
+            //CrossMTAdmob.Current.OnRewarded -= Current_OnRewarded;
+            //CrossMTAdmob.Current.OnRewardedVideoAdClosed -= Current_OnRewardedVideoAdClosed;
+            //CrossMTAdmob.Current.OnRewardedVideoAdFailedToLoad -= Current_OnRewardedVideoAdFailedToLoad;
+            //CrossMTAdmob.Current.OnRewardedVideoAdLeftApplication -= Current_OnRewardedVideoAdLeftApplication;
+            //CrossMTAdmob.Current.OnRewardedVideoAdLoaded -= Current_OnRewardedVideoAdLoaded;
+            //CrossMTAdmob.Current.OnRewardedVideoAdOpened -= Current_OnRewardedVideoAdOpened;
 
             CrossMTAdmob.Current.OnInterstitialLoaded -= Current_OnInterstitialLoaded;
             CrossMTAdmob.Current.OnInterstitialOpened -= Current_OnInterstitialOpened;
