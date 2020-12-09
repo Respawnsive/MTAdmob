@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SampleAdMobForms.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:adMobCtrl="clr-namespace:Plugin.AdMobForms.Controls;assembly=Plugin.AdMobForms"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Test AdMobPlugin"
+    mc:Ignorable="d">
+
+    <ScrollView>
+        <StackLayout
+            Margin="0"
+            Padding="0"
+            Spacing="8">
+
+            <!--  Test a Full-Width Top Banner  -->
+            <Grid BackgroundColor="Red" RowDefinitions="Auto, Auto">
+                <adMobCtrl:FormsBannerAdView
+                    x:Name="topbanner"
+                    Grid.Row="0"
+                    AdsClosed="topbanner_AdsClosed"
+                    AdsFailedToLoad="topbanner_AdsFailedToLoad"
+                    AdsLoaded="topbanner_AdsLoaded"
+                    AdsOpened="topbanner_AdsOpened" />
+                <Label
+                    Grid.Row="1"
+                    HorizontalTextAlignment="Center"
+                    Text="Full-Width Top Banner" />
+            </Grid>
+
+            <!--  Test a Custom-Width Banner  -->
+            <Grid
+                BackgroundColor="LightGreen"
+                ColumnDefinitions="Auto"
+                HorizontalOptions="Center"
+                RowDefinitions="Auto, Auto">
+                <adMobCtrl:FormsBannerAdView
+                    x:Name="customwidthbanner"
+                    Grid.Row="0"
+                    AdsClosed="customwidthbanner_AdsClosed"
+                    AdsFailedToLoad="customwidthbanner_AdsFailedToLoad"
+                    AdsLoaded="customwidthbanner_AdsLoaded"
+                    AdsOpened="customwidthbanner_AdsOpened"
+                    HorizontalOptions="Center"
+                    WidthRequest="320" />
+                <Label
+                    Grid.Row="1"
+                    HorizontalTextAlignment="Center"
+                    Text="Custom-Width Banner (320)" />
+            </Grid>
+
+            <!--  Test a Custom-Size Banner  -->
+            <Grid
+                BackgroundColor="Yellow"
+                ColumnDefinitions="Auto"
+                HorizontalOptions="Center"
+                RowDefinitions="Auto, Auto">
+                <adMobCtrl:FormsBannerAdView
+                    x:Name="customsizebanner"
+                    Grid.Row="0"
+                    AdsClosed="customsizebanner_AdsClosed"
+                    AdsFailedToLoad="customsizebanner_AdsFailedToLoad"
+                    AdsLoaded="customsizebanner_AdsLoaded"
+                    AdsOpened="customsizebanner_AdsOpened"
+                    HeightRequest="250"
+                    HorizontalOptions="Center"
+                    WidthRequest="300" />
+                <Label
+                    Grid.Row="1"
+                    HorizontalTextAlignment="Center"
+                    Text="Custom-Size Banner (300x250)" />
+            </Grid>
+
+            <!--  Test an Interstitial  -->
+            <Frame
+                Margin="8,0"
+                Padding="8"
+                CornerRadius="8"
+                HasShadow="True">
+                <Grid ColumnDefinitions="*,*" RowDefinitions="Auto, Auto, Auto">
+                    <Label
+                        Grid.Row="0"
+                        Grid.ColumnSpan="2"
+                        HorizontalOptions="Center"
+                        Text="Intersitial" />
+                    <Button
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Text="Load" />
+                    <Button
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Text="Show" />
+                    <StackLayout Grid.Row="2" Grid.ColumnSpan="2">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout>
+                                        <Label Text="Result" />
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+
+                </Grid>
+            </Frame>
+            <!--  Place the Admob controls here  -->
+            <Button Text="Load Reward" />
+            <Button Text="Show Reward" />
+            <Button Text="Load Interstitial" />
+            <Button Text="Show Interstitial" />
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
